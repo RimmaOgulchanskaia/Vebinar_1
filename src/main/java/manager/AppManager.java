@@ -13,15 +13,16 @@ public class AppManager {
         return driver;
     }
 
-    @BeforeMethod
+    @BeforeMethod(enabled = true)
     public void setup(){
+        //ChromeOptions chromeOptions
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
-//        if(driver!= null)
-//            driver.quit();
+        if(driver!= null)
+           driver.quit();
     }
 }
